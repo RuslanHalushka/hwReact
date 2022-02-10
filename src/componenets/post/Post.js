@@ -1,16 +1,14 @@
 import React, {Component} from 'react';
 
-class User extends Component {
+class Post extends Component {
     render() {
         let {item} = this.props;
         return (
             <div>
-                {
-                    item.name
-                }
+                {item.title}
             </div>
         );
     }
 }
 
-export default User;
+export default Post;
