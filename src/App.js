@@ -1,11 +1,6 @@
 import React, {Component} from 'react';
 import AllUsers from "./componenets/all-users/AllUsers";
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Link
-} from "react-router-dom";
+import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 import AllPosts from "./componenets/all-posts/AllPosts";
 
 class App extends Component {
@@ -20,10 +15,16 @@ class App extends Component {
                         <Link to={'/posts'}>posts</Link>
                     </div>
                     <div>
-                        <Routes>
-                            <Route path={'/users'} element = {<AllUsers/>}/>
-                            <Route path={'/posts'} element = {<AllPosts/>}/>
-                        </Routes>
+                        <Switch>
+                            <Route path={'/users'} render={() => {
+                                return <AllUsers/>
+                            }}>
+                            </Route>
+                            <Route path={'/posts'} render={() => {
+                                return <AllPosts/>
+                            }}/>
+
+                        </Switch>
                     </div>
                 </div>
             </Router>
